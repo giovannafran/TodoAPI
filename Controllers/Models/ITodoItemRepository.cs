@@ -11,7 +11,7 @@ namespace TodoItem
 
         TodoItem add(TodoItem todo); 
 
-        void remove(Guid Id);
+        TodoItem remove(Guid Id);
 
         void update (TodoItem todo);
     }

@@ -21,22 +21,29 @@ namespace TodoAPI
 
         public IEnumerable<TodoItem> getAll()
         {
-            return data.Values;
+            return data.Values; // retornar os valores
         }
 
         public TodoItem getById (Guid Id)
         {
-            throw new NotImplementException();
+            TodoItem TodoItem; // declarei a variável // nao ocnsegui usar VAR para declarar, tive q usar o tipo específico.
+            data.TryGetValue(Id, out TodoItem); // mandei buscar os dados dela //TodoItem passando como referencia
+            return TodoItem;
         }
 
-        public void remove (Guid Id)
+        public TodoItem remove (Guid Id)
         {
-            throw new NotImplementException();
+            TodoItem TodoItem;
+            data.TryRemove(Id, out TodoItem); // remocao
+            return TodoItem; // retornei quem foi removido
+
+
         }
 
         public void update (TodoItem todo)
         {
-            throw new NotImplementException();
+            //data.TryUpdate(todo.Id,todo,todo); // "nesta chave tem q conter elemento 3, pois vou alterar p elemento 2" // esse metodo esta mandando um novo todoitem, esse codigo nao é o correto quando falamos de implementação.
+            data[todo.Id] = todo;
         }
 
 

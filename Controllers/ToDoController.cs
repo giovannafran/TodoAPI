@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace TodoAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")] //variaveis pre definidas
+    [Route("api/TodoItems")] //variaveis pre definidas
     public class ToDoController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -17,6 +17,8 @@ namespace TodoAPI.Controllers
         };
 
         private readonly ILogger<ToDoController> _logger;
+
+        private readonly ITodoItemRepository _repository;
 
         public ToDoController(ILogger<ToDoController> logger)
         {
